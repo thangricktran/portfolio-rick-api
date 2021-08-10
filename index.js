@@ -14,6 +14,13 @@ async function runServer() {
 
   server.use(portfolioRoutes);
   server.use(blogRoutes);
+
+  server.get('/test', (req, res) => {
+    res.json({message: "Hello World!!!"});
+  });
+  server.get('', (req, res) => {
+    res.sendFile('index.html', {root: __dirname});
+  });
   
   server.listen(PORT, (err) => {
     if (err) console.error(err);
